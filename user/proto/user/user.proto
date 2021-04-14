@@ -1,0 +1,54 @@
+syntax = "proto3";
+package user;
+
+import "google/protobuf/descriptor.proto";
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+service User {
+  rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {
+      option(google.api.http) = {
+          get: "/user"
+      };
+  }
+  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {
+      option(google.api.http) = {
+          put: "/user"
+      };
+  }
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse) {
+      option(google.api.http) = {
+          put: "/user/password"
+      };
+  }
+  rpc GetUserProfileById(GetUserProfileByIdRequest) returns (GetUserProfileByIdResponse) {
+      option(google.api.http) = {
+          get: "/user/{id}"
+      };
+  }
+
+}
+
+message GetUserProfileByIdRequest {
+}
+
+message GetUserProfileByIdResponse {
+}
+
+message ChangePasswordRequest {
+}
+
+message ChangePasswordResponse {
+}
+
+message UpdateProfileRequest {
+}
+
+message UpdateProfileResponse {
+}
+
+message GetProfileRequest {
+}
+
+message GetProfileResponse {
+}
